@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cars</title>
+    <style>
+        table th, table td {
+            padding: 5px;
+        }
+
+        .row {
+            font-style: italic;
+        }
+
+        .even-row {
+            color: brown;
+        }
+
+        .odd-row {
+            color: cornflowerblue;
+        }
+    </style>
+</head>
+<body>
+<h1>My Cars</h1>
+<table border="1">
+    <tr>
+        <th>No</th>
+        <th>Model</th>
+        <th>Color</th>
+        <th>YearOfRelease</th>
+    </tr>
+    <tr th:each="car, state : ${message2}" class="row" th:classappend="${state.odd}?'odd-row':'even-row'">
+        <td th:text="${state.count}">No</td>
+        <td th:text="${car.getModel()}">Model</td>
+        <td th:text="${car.getColor()}">Color</td>
+        <td th:text="${car.getYearOfRelease()}">YearOfRelease</td>
+    </tr>
+    <tr th:each="car, state : ${message}" class="row" th:classappend="${state.odd}?'odd-row':'even-row'">
+        <td th:text="${state.count}">No</td>
+        <td th:text="${car.getModel()}">Model</td>
+        <td th:text="${car.getColor()}">Color</td>
+        <td th:text="${car.getYearOfRelease()}">YearOfRelease</td>
+    </tr>
+</table>
+</body>
+</html>
