@@ -1,8 +1,12 @@
 package web.model;
 
+import java.util.Objects;
+
 public class Car {
     private String model;
     private String color;
+
+
     private int yearOfRelease;
 
     public Car(String model, String color, int yearOfRelease) {
@@ -36,6 +40,18 @@ public class Car {
         this.yearOfRelease = yearOfRelease;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Car car = (Car) o;
+        return yearOfRelease == car.yearOfRelease && Objects.equals(model, car.model) && Objects.equals(color, car.color);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(model, color, yearOfRelease);
+    }
 
     @Override
     public String toString() {

@@ -27,9 +27,14 @@ public class CarServiceImpl implements CarService {
     @Override
     public List<Car> getNumberOfCars(int number) {
         List<Car> resultCar = new ArrayList<>();
-        for (int i = 0; i < number; i++) {
-            resultCar.add(i, cars.get(i));
+        if (number <= 5) {
+            for (int i = 0; i < number; i++) {
+                resultCar.add(i, cars.get(i));
+            }
+            return resultCar;
+        } else {
+            return cars;
         }
-        return resultCar;
+
     }
 }
