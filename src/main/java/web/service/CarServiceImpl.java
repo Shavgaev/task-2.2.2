@@ -7,8 +7,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CarServiceImpl {
-    List<Car> cars;
+public class CarServiceImpl implements CarService {
+    private List<Car> cars;
 
     {
         cars = new ArrayList<>();
@@ -19,7 +19,17 @@ public class CarServiceImpl {
         cars.add(new Car("omoda", "green", 2023));
     }
 
-    public List<Car> yearOfRelease() {
+    @Override
+    public List<Car> getAllCars() {
         return cars;
+    }
+
+    @Override
+    public List<Car> getNumberOfCars(int number) {
+        List<Car> resultCar = new ArrayList<>();
+        for (int i = 0; i < number; i++) {
+            resultCar.add(i, cars.get(i));
+        }
+        return resultCar;
     }
 }

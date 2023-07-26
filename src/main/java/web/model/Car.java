@@ -4,6 +4,7 @@ public class Car {
     private String model;
     private String color;
     private int yearOfRelease;
+
     public Car(String model, String color, int yearOfRelease) {
         this.model = model;
         this.color = color;
@@ -34,8 +35,6 @@ public class Car {
     public void setYearOfRelease(int yearOfRelease) {
         this.yearOfRelease = yearOfRelease;
     }
-
-
 
 
     @Override
